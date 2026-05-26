@@ -1072,5 +1072,22 @@ zephyr_udc0: &usb_otg {
         spi-max-frequency = <10000000>;
     };
 };
+
+&i2c0 {
+    status = "okay";
+    mpu9250@68 {
+        compatible = "invensense,mpu9250";
+        reg = <0x68>;
+        label = "MPU9250";
+
+
+        gyro-sr-div = <0>;
+        gyro-dlpf = <250>;
+        gyro-fs = <250>;
+
+        accel-dlpf = "218.1";
+        accel-fs = <8>;
+    };
+};
 # 0 "<command-line>" 2
 # 1 "/home/barth/zephyrproject/zephyr/misc/empty_file.c"

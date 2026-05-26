@@ -30,3 +30,20 @@
         spi-max-frequency = <10000000>;
     };
 };
+
+&i2c0 {
+    status = "okay";
+    mpu9250@68 {
+        compatible = "invensense,mpu9250";
+        reg = <0x68>;
+        label = "MPU9250";
+
+        /* PROPRIÉTÉS OBLIGATOIRES */
+        gyro-sr-div = <0>;          // Sample rate divider
+        gyro-dlpf = <250>;            // Digital low pass filter
+        gyro-fs = <250>;              // Full scale (0 = 250 dps)
+
+        accel-dlpf = "218.1";
+        accel-fs = <8>;
+    };
+};

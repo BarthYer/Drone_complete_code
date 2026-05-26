@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(west build *)",
+      "Read(//home/barth/zephyrproject/**)",
+      "Bash(/home/barth/zephyrproject/.venv/bin/west build *)",
+      "Bash(ZEPHYR_BASE=/home/barth/zephyrproject/zephyr PATH=/home/barth/zephyrproject/.venv/bin:__TRACKED_VAR__ west build -b esp32s3_devkitc/esp32s3/procpu)"
+    ]
+  }
+}

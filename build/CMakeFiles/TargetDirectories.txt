@@ -180,6 +180,9 @@
 /home/barth/zephyr/Drone_project/Drone_complete_code/build/zephyr/drivers/gpio/CMakeFiles/rebuild_cache.dir
 /home/barth/zephyr/Drone_project/Drone_complete_code/build/zephyr/drivers/gpio/CMakeFiles/edit_cache.dir
 /home/barth/zephyr/Drone_project/Drone_complete_code/build/zephyr/drivers/gpio/CMakeFiles/drivers__gpio.dir
+/home/barth/zephyr/Drone_project/Drone_complete_code/build/zephyr/drivers/i2c/CMakeFiles/rebuild_cache.dir
+/home/barth/zephyr/Drone_project/Drone_complete_code/build/zephyr/drivers/i2c/CMakeFiles/edit_cache.dir
+/home/barth/zephyr/Drone_project/Drone_complete_code/build/zephyr/drivers/i2c/CMakeFiles/drivers__i2c.dir
 /home/barth/zephyr/Drone_project/Drone_complete_code/build/zephyr/drivers/pinctrl/CMakeFiles/rebuild_cache.dir
 /home/barth/zephyr/Drone_project/Drone_complete_code/build/zephyr/drivers/pinctrl/CMakeFiles/edit_cache.dir
 /home/barth/zephyr/Drone_project/Drone_complete_code/build/zephyr/drivers/pinctrl/CMakeFiles/drivers__pinctrl.dir

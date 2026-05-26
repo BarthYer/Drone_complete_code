@@ -42,11 +42,22 @@
     "assign",
     [
       "/home/barth/zephyr/Drone_project/Drone_complete_code/prj.conf",
-      12
+      18
     ]
   ],
   [
     "CONFIG_FPU",
+    "y",
+    "bool",
+    "y",
+    "assign",
+    [
+      "/home/barth/zephyr/Drone_project/Drone_complete_code/prj.conf",
+      8
+    ]
+  ],
+  [
+    "CONFIG_LIBLC3",
     "y",
     "bool",
     null,
@@ -529,7 +540,7 @@
     "assign",
     [
       "/home/barth/zephyr/Drone_project/Drone_complete_code/prj.conf",
-      8
+      14
     ]
   ],
   [
@@ -870,6 +881,17 @@
     ]
   ],
   [
+    "CONFIG_DT_HAS_ESPRESSIF_ESP32_I2C_ENABLED",
+    "n",
+    "bool",
+    "y",
+    "default",
+    [
+      "/home/barth/zephyr/Drone_project/Drone_complete_code/build/Kconfig/Kconfig.dts",
+      2393
+    ]
+  ],
+  [
     "CONFIG_DT_HAS_ESPRESSIF_ESP32_INTC_ENABLED",
     "n",
     "bool",
@@ -1032,6 +1054,17 @@
     [
       "/home/barth/zephyr/Drone_project/Drone_complete_code/build/Kconfig/Kconfig.dts",
       2868
+    ]
+  ],
+  [
+    "CONFIG_DT_HAS_INVENSENSE_MPU9250_ENABLED",
+    "n",
+    "bool",
+    "y",
+    "default",
+    [
+      "/home/barth/zephyr/Drone_project/Drone_complete_code/build/Kconfig/Kconfig.dts",
+      3718
     ]
   ],
   [
@@ -2317,7 +2350,7 @@
     "assign",
     [
       "/home/barth/zephyr/Drone_project/Drone_complete_code/prj.conf",
-      29
+      35
     ]
   ],
   [
@@ -3589,6 +3622,14 @@
     ]
   ],
   [
+    "CONFIG_FPU_SHARING",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
     "CONFIG_TOOLCHAIN_HAS_BUILTIN_FFS",
     "n",
     "bool",
@@ -4793,6 +4834,7 @@
     "y",
     "select",
     [
+      "I2C_ESP32 && DT_HAS_ESPRESSIF_ESP32_I2C_ENABLED && I2C",
       "UART_ESP32 && DT_HAS_ESPRESSIF_ESP32_UART_ENABLED && SERIAL"
     ]
   ],
@@ -4816,9 +4858,139 @@
     "CONFIG_I2C",
     "y",
     "bool",
+    "y",
+    "assign",
+    [
+      "/home/barth/zephyr/Drone_project/Drone_complete_code/prj.conf",
+      5
+    ]
+  ],
+  [
+    "CONFIG_I2C_SHELL_BUFFER_SIZE",
+    "y",
+    "int",
+    "16",
+    "default",
+    [
+      "/home/barth/zephyrproject/zephyr/drivers/i2c/Kconfig",
+      27
+    ]
+  ],
+  [
+    "CONFIG_I2C_CALLBACK",
+    "y",
+    "bool",
     null,
     "unset",
     null
+  ],
+  [
+    "CONFIG_I2C_RTIO",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_I2C_TARGET",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_I2C_DW_EXTENDED_SUPPORT",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_I2C_ESP32",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/home/barth/zephyrproject/zephyr/drivers/i2c/Kconfig.esp32",
+      9
+    ]
+  ],
+  [
+    "CONFIG_I2C_INIT_PRIORITY",
+    "y",
+    "int",
+    "50",
+    "default",
+    [
+      "/home/barth/zephyrproject/zephyr/drivers/i2c/Kconfig",
+      182
+    ]
+  ],
+  [
+    "CONFIG_I2C_LOG_LEVEL_OFF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_I2C_LOG_LEVEL_ERR",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_I2C_LOG_LEVEL_WRN",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_I2C_LOG_LEVEL_INF",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_I2C_LOG_LEVEL_DBG",
+    "y",
+    "bool",
+    null,
+    "unset",
+    null
+  ],
+  [
+    "CONFIG_I2C_LOG_LEVEL_DEFAULT",
+    "y",
+    "bool",
+    "y",
+    "default",
+    [
+      "/home/barth/zephyrproject/zephyr/subsys/logging/Kconfig.template.log_config",
+      5
+    ]
+  ],
+  [
+    "CONFIG_I2C_LOG_LEVEL",
+    "n",
+    "int",
+    "3",
+    "default",
+    [
+      "/home/barth/zephyrproject/zephyr/subsys/logging/Kconfig.template.log_config",
+      36
+    ]
   ],
   [
     "CONFIG_I2S",
@@ -5921,20 +6093,9 @@
     "CONFIG_PICOLIBC_IO_FLOAT",
     "y",
     "bool",
-    null,
-    "unset",
-    null
-  ],
-  [
-    "CONFIG_PICOLIBC_IO_LONG_LONG",
-    "y",
-    "bool",
     "y",
     "default",
-    [
-      "/home/barth/zephyrproject/zephyr/lib/libc/picolibc/Kconfig",
-      34
-    ]
+    null
   ],
   [
     "CONFIG_STDOUT_CONSOLE",
@@ -6206,9 +6367,12 @@
     "CONFIG_CBPRINTF_FP_SUPPORT",
     "y",
     "bool",
-    null,
-    "unset",
-    null
+    "y",
+    "default",
+    [
+      "/home/barth/zephyrproject/zephyr/lib/os/Kconfig.cbprintf",
+      68
+    ]
   ],
   [
     "CONFIG_CBPRINTF_FP_A_SUPPORT",
@@ -6617,7 +6781,7 @@
     "assign",
     [
       "/home/barth/zephyr/Drone_project/Drone_complete_code/prj.conf",
-      20
+      26
     ]
   ],
   [

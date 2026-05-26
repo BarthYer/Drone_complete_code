@@ -1,4 +1,61 @@
+cmake:
+  application:
+    configuration-dir: '/home/barth/zephyr/Drone_project/Drone_complete_code'
+    source-dir: '/home/barth/zephyr/Drone_project/Drone_complete_code'
+  board:
+    name: 'esp32s3_devkitc'
+    path:
+     - '/home/barth/zephyrproject/zephyr/boards/espressif/esp32s3_devkitc'
+    qualifiers: 'esp32s3/procpu'
+    revision: ''
+  devicetree:
+    bindings-dirs:
+     - '/home/barth/zephyrproject/zephyr/dts/bindings'
+    files:
+     - '/home/barth/zephyrproject/zephyr/boards/espressif/esp32s3_devkitc/esp32s3_devkitc_procpu.dts'
+     - '/home/barth/zephyr/Drone_project/Drone_complete_code/app.overlay'
+    include-dirs:
+     - '/home/barth/zephyrproject/modules/hal/ambiq/dts'
+     - '/home/barth/zephyrproject/modules/hal/atmel/include'
+     - '/home/barth/zephyrproject/modules/hal/bouffalolab/include'
+     - '/home/barth/zephyrproject/modules/hal/bouffalolab/include/zephyr'
+     - '/home/barth/zephyrproject/modules/hal/gigadevice/include'
+     - '/home/barth/zephyrproject/modules/hal/microchip/include'
+     - '/home/barth/zephyrproject/modules/hal/microchip/dts'
+     - '/home/barth/zephyrproject/modules/hal/nuvoton/dts'
+     - '/home/barth/zephyrproject/modules/hal/nxp/dts'
+     - '/home/barth/zephyrproject/modules/hal/stm32/dts'
+     - '/home/barth/zephyrproject/modules/hal/ti/dts'
+     - '/home/barth/zephyrproject/zephyr/include'
+     - '/home/barth/zephyrproject/zephyr/include/zephyr'
+     - '/home/barth/zephyrproject/zephyr/dts/common'
+     - '/home/barth/zephyrproject/zephyr/dts/vendor'
+     - '/home/barth/zephyrproject/zephyr/dts/rx'
+     - '/home/barth/zephyrproject/zephyr/dts/x86'
+     - '/home/barth/zephyrproject/zephyr/dts/xtensa'
+     - '/home/barth/zephyrproject/zephyr/dts/sparc'
+     - '/home/barth/zephyrproject/zephyr/dts/riscv'
+     - '/home/barth/zephyrproject/zephyr/dts/posix'
+     - '/home/barth/zephyrproject/zephyr/dts/arm64'
+     - '/home/barth/zephyrproject/zephyr/dts/arm'
+     - '/home/barth/zephyrproject/zephyr/dts/arc'
+     - '/home/barth/zephyrproject/zephyr/dts'
+    user-files:
+     - '/home/barth/zephyr/Drone_project/Drone_complete_code/app.overlay'
+  kconfig:
+    files:
+     - '/home/barth/zephyrproject/zephyr/boards/espressif/esp32s3_devkitc/esp32s3_devkitc_procpu_defconfig'
+     - '/home/barth/zephyr/Drone_project/Drone_complete_code/prj.conf'
+    user-files:
+     - '/home/barth/zephyr/Drone_project/Drone_complete_code/prj.conf'
+  toolchain:
+    name: 'zephyr'
+    path: '/home/barth/zephyr-sdk-0.17.4'
+  zephyr:
+    version: '4.3.99'
+    zephyr-base: '/home/barth/zephyrproject/zephyr'
+version: '0.1.0'
 west:
-  command: /home/barth/zephyrproject/.venv/bin/west build -b esp32s3_devkitc/esp32s3/procpu
-  topdir: /home/barth/zephyrproject
-  version: 1.5.0
+  command: '/home/barth/zephyrproject/.venv/bin/west build -b esp32s3_devkitc/esp32s3/procpu'
+  topdir: '/home/barth/zephyrproject'
+  version: '1.5.0'

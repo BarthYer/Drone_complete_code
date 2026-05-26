@@ -653,6 +653,8 @@ KEEP(*(SORT(.__device_deps_pass2*)));
 __device_deps_end = .;
  } > drom0_0_seg AT > FLASH
 gpio_driver_api_area : ALIGN_WITH_INPUT { _gpio_driver_api_list_start = .; KEEP(*(SORT_BY_NAME(._gpio_driver_api.static.*))); _gpio_driver_api_list_end = .;; } > drom0_0_seg AT > FLASH
+i2c_driver_api_area : ALIGN_WITH_INPUT { _i2c_driver_api_list_start = .; KEEP(*(SORT_BY_NAME(._i2c_driver_api.static.*))); _i2c_driver_api_list_end = .;; } > drom0_0_seg AT > FLASH
+i2c_target_driver_api_area : ALIGN_WITH_INPUT { _i2c_target_driver_api_list_start = .; KEEP(*(SORT_BY_NAME(._i2c_target_driver_api.static.*))); _i2c_target_driver_api_list_end = .;; } > drom0_0_seg AT > FLASH
 spi_driver_api_area : ALIGN_WITH_INPUT { _spi_driver_api_list_start = .; KEEP(*(SORT_BY_NAME(._spi_driver_api.static.*))); _spi_driver_api_list_end = .;; } > drom0_0_seg AT > FLASH
 shared_irq_driver_api_area : ALIGN_WITH_INPUT { _shared_irq_driver_api_list_start = .; KEEP(*(SORT_BY_NAME(._shared_irq_driver_api.static.*))); _shared_irq_driver_api_list_end = .;; } > drom0_0_seg AT > FLASH
 crypto_driver_api_area : ALIGN_WITH_INPUT { _crypto_driver_api_list_start = .; KEEP(*(SORT_BY_NAME(._crypto_driver_api.static.*))); _crypto_driver_api_list_end = .;; } > drom0_0_seg AT > FLASH
@@ -686,8 +688,6 @@ fuel_gauge_driver_api_area : ALIGN_WITH_INPUT { _fuel_gauge_driver_api_list_star
 gnss_driver_api_area : ALIGN_WITH_INPUT { _gnss_driver_api_list_start = .; KEEP(*(SORT_BY_NAME(._gnss_driver_api.static.*))); _gnss_driver_api_list_end = .;; } > drom0_0_seg AT > FLASH
 haptics_driver_api_area : ALIGN_WITH_INPUT { _haptics_driver_api_list_start = .; KEEP(*(SORT_BY_NAME(._haptics_driver_api.static.*))); _haptics_driver_api_list_end = .;; } > drom0_0_seg AT > FLASH
 hwspinlock_driver_api_area : ALIGN_WITH_INPUT { _hwspinlock_driver_api_list_start = .; KEEP(*(SORT_BY_NAME(._hwspinlock_driver_api.static.*))); _hwspinlock_driver_api_list_end = .;; } > drom0_0_seg AT > FLASH
-i2c_driver_api_area : ALIGN_WITH_INPUT { _i2c_driver_api_list_start = .; KEEP(*(SORT_BY_NAME(._i2c_driver_api.static.*))); _i2c_driver_api_list_end = .;; } > drom0_0_seg AT > FLASH
-i2c_target_driver_api_area : ALIGN_WITH_INPUT { _i2c_target_driver_api_list_start = .; KEEP(*(SORT_BY_NAME(._i2c_target_driver_api.static.*))); _i2c_target_driver_api_list_end = .;; } > drom0_0_seg AT > FLASH
 i2s_driver_api_area : ALIGN_WITH_INPUT { _i2s_driver_api_list_start = .; KEEP(*(SORT_BY_NAME(._i2s_driver_api.static.*))); _i2s_driver_api_list_end = .;; } > drom0_0_seg AT > FLASH
 i3c_driver_api_area : ALIGN_WITH_INPUT { _i3c_driver_api_list_start = .; KEEP(*(SORT_BY_NAME(._i3c_driver_api.static.*))); _i3c_driver_api_list_end = .;; } > drom0_0_seg AT > FLASH
 ipm_driver_api_area : ALIGN_WITH_INPUT { _ipm_driver_api_list_start = .; KEEP(*(SORT_BY_NAME(._ipm_driver_api.static.*))); _ipm_driver_api_list_end = .;; } > drom0_0_seg AT > FLASH

@@ -189,13 +189,7 @@ struct DataPackage read_data()
 
         /* Flush RX FIFO */
         spi_transfer(NRF_CMD_FLUSH_RX);
-
-        /*printk("x_right: %d | y_right: %d | x_left: %d | y_left: %d | active: %d\n",
-               data.x_right,
-               data.y_right,
-               data.x_left,
-               data.y_left,
-               (int)data.drone_active);*/
+        
     }
     return data;
 }

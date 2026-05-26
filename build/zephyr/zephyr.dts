@@ -353,10 +353,22 @@
 			interrupts = < 0x2a 0x0 0x0 >;      /* in zephyr/dts/xtensa/espressif/esp32s3/esp32s3_common.dtsi:294 */
 			interrupt-parent = < &intc >;       /* in zephyr/dts/xtensa/espressif/esp32s3/esp32s3_common.dtsi:295 */
 			clocks = < &clock 0x5 >;            /* in zephyr/dts/xtensa/espressif/esp32s3/esp32s3_common.dtsi:296 */
-			status = "disabled";                /* in zephyr/dts/xtensa/espressif/esp32s3/esp32s3_common.dtsi:297 */
 			clock-frequency = < 0x186a0 >;      /* in zephyr/boards/espressif/esp32s3_devkitc/esp32s3_devkitc_procpu.dts:80 */
 			pinctrl-0 = < &i2c0_default >;      /* in zephyr/boards/espressif/esp32s3_devkitc/esp32s3_devkitc_procpu.dts:81 */
 			pinctrl-names = "default";          /* in zephyr/boards/espressif/esp32s3_devkitc/esp32s3_devkitc_procpu.dts:82 */
+			status = "okay";                    /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:35 */
+
+			/* node '/soc/i2c@60013000/mpu9250@68' defined in ../zephyr/Drone_project/Drone_complete_code/app.overlay:36 */
+			mpu9250@68 {
+				compatible = "invensense,mpu9250"; /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:37 */
+				reg = < 0x68 >;                    /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:38 */
+				label = "MPU9250";                 /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:39 */
+				gyro-sr-div = < 0x0 >;             /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:42 */
+				gyro-dlpf = < 0xfa >;              /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:43 */
+				gyro-fs = < 0xfa >;                /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:44 */
+				accel-dlpf = "218.1";              /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:46 */
+				accel-fs = < 0x8 >;                /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:47 */
+			};
 		};
 
 		/* node '/soc/i2c@60027000' defined in zephyr/dts/xtensa/espressif/esp32s3/esp32s3_common.dtsi:300 */
