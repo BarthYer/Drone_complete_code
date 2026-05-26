@@ -1,0 +1,4 @@
+west:
+  command: /home/barth/zephyrproject/.venv/bin/west build -b esp32s3_devkitc/esp32s3/procpu
+  topdir: /home/barth/zephyrproject
+  version: 1.5.0

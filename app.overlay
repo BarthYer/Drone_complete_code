@@ -1,0 +1,32 @@
+/ {
+    aliases {
+        led1 = &led_1;
+
+    };
+
+    leds {
+        compatible = "gpio-leds";
+        led_1: led_1 {
+            gpios = <&gpio0 2 GPIO_ACTIVE_HIGH>;
+            label = "LED 1";
+        };
+    };
+       
+};
+
+
+/*
+ * Overlay simplifié pour ESP32 avec nRF24L01
+ */
+
+
+
+&spi2 {
+    status = "okay";
+    cs-gpios = <&gpio0 10 GPIO_ACTIVE_LOW>;
+      nrf24l01: nrf24l01@0 {
+        compatible = "nordic,nrf24l01";
+        reg = <0>;
+        spi-max-frequency = <10000000>;
+    };
+};
