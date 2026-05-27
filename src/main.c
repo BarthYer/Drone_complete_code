@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include "drone_receiver.h"
 #include "drone_mpu9250.h"
+#include "drone_mc_controller.h"
 
 int main(void)
 {
@@ -10,6 +11,13 @@ int main(void)
 
     /* ---- Init MPU9250 IMU (board must be still during calibration) ---- */
     if (mpu9250_driver_init() < 0) {
+        printf("ERROR: MPU9250 init failed\n");
+        return -1;
+    }
+
+    /* ---- Init ESCs and arm all 4 motors ---- */
+    if (motor_esc_init() < 0) {
+        printf("ERROR: ESC init failed\n");
         return -1;
     }
 
@@ -17,23 +25,28 @@ int main(void)
 
     while (1) {
         int64_t t_start = k_uptime_get();
-
+        motors_set_all(25);
         /* ---- Update IMU (250 Hz complementary filter) ---- */
         if (mpu9250_update() < 0) {
-            printf("Erreur lecture IMU\n");
+            printf("ERROR: IMU read failed\n");
         }
 
         /* ---- Read latest RC packet ---- */
         struct DataPackage rc = read_data();
-        printf("x_right: %d | y_right: %d | x_left: %d | y_left: %d | active: %d\n",
-               rc.x_right, rc.y_right, rc.x_left, rc.y_left, (int)rc.drone_active);
-        /*printf("x_right: %d | y_right: %d | x_left:
-        /* ---- Print at 10 Hz ---- */
+
+        /* ---- Drive all 4 motors from RC commands ---- */
+        //motors_set_from_rc(&rc);
+
+        /* ---- Print telemetry at 10 Hz ---- */
         if (++print_cnt >= MPU9250_LOOP_HZ / 10) {
             print_cnt = 0;
 
-            printf("Roll: %6.2f deg  Pitch: %6.2f deg  |"
-                   "  Gyro(dps): %5.1f %5.1f %5.1f  \n",
+            printf("RC  x_right:%5d  y_right:%5d  x_left:%5d  y_left:%5d  active:%d\n",
+                   rc.x_right, rc.y_right, rc.x_left, rc.y_left,
+                   (int)rc.drone_active);
+
+            printf("IMU Roll:%6.2f deg  Pitch:%6.2f deg  |"
+                   "  Gyro(dps): %5.1f %5.1f %5.1f\n",
                    att.roll_deg,  att.pitch_deg,
                    gyro_x_dps,   gyro_y_dps,   gyro_z_dps);
         }

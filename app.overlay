@@ -47,3 +47,40 @@
         accel-fs = <8>;
     };
 };
+
+
+#include <zephyr/dt-bindings/pwm/pwm.h>
+
+/* ── Pin control ───────────────────────────────────────────────────── */
+&pinctrl {
+    mcpwm0_default: mcpwm0_default {
+
+        /* FIX: Timer 0 outputs in their own group */
+        group1 {
+            pinmux = <MCPWM0_OUT0A_GPIO18>,  /* Motor 1 — ch 0 */
+                     <MCPWM0_OUT0B_GPIO17>,  /* Motor 2 — ch 1 */
+					 <MCPWM0_OUT1A_GPIO16>,  /* Motor 3 — ch 2 */
+                     <MCPWM0_OUT1B_GPIO15>;  /* Motor 4 — ch 3 */
+            output-enable;
+        };
+
+       
+    };
+};
+
+/* ── MCPWM peripheral ──────────────────────────────────────────────── */
+&mcpwm0 {
+    status = "okay";
+    pinctrl-0 = <&mcpwm0_default>;
+    pinctrl-names = "default";
+
+    /* FIX: prescale recalculated for 1 µs resolution (was 255) */
+    prescale        = <7>;    /* 160 MHz / 8  = 20 MHz          */
+
+    /* FIX: timer0 prescale corrected (was 124 → ~200 µs/count) */
+    prescale-timer0 = <19>;   /* 20 MHz  / 20 =  1 MHz (1 µs)  */
+
+    /* FIX: timer1 prescale added — required for channels 2 & 3  */
+    prescale-timer1 = <19>;   /* same resolution for motors 3&4 */
+};
+

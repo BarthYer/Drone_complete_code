@@ -188,6 +188,9 @@
 /home/barth/zephyr/Drone_project/Drone_complete_code/build/zephyr/drivers/pinctrl/CMakeFiles/drivers__pinctrl.dir
 /home/barth/zephyr/Drone_project/Drone_complete_code/build/zephyr/drivers/pinctrl/renesas/CMakeFiles/rebuild_cache.dir
 /home/barth/zephyr/Drone_project/Drone_complete_code/build/zephyr/drivers/pinctrl/renesas/CMakeFiles/edit_cache.dir
+/home/barth/zephyr/Drone_project/Drone_complete_code/build/zephyr/drivers/pwm/CMakeFiles/edit_cache.dir
+/home/barth/zephyr/Drone_project/Drone_complete_code/build/zephyr/drivers/pwm/CMakeFiles/rebuild_cache.dir
+/home/barth/zephyr/Drone_project/Drone_complete_code/build/zephyr/drivers/pwm/CMakeFiles/drivers__pwm.dir
 /home/barth/zephyr/Drone_project/Drone_complete_code/build/zephyr/drivers/serial/CMakeFiles/rebuild_cache.dir
 /home/barth/zephyr/Drone_project/Drone_complete_code/build/zephyr/drivers/serial/CMakeFiles/edit_cache.dir
 /home/barth/zephyr/Drone_project/Drone_complete_code/build/zephyr/drivers/serial/CMakeFiles/drivers__serial.dir

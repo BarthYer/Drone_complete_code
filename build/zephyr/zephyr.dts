@@ -657,7 +657,12 @@
 			interrupt-parent = < &intc >;         /* in zephyr/dts/xtensa/espressif/esp32s3/esp32s3_common.dtsi:527 */
 			clocks = < &clock 0xc >;              /* in zephyr/dts/xtensa/espressif/esp32s3/esp32s3_common.dtsi:528 */
 			#pwm-cells = < 0x3 >;                 /* in zephyr/dts/xtensa/espressif/esp32s3/esp32s3_common.dtsi:529 */
-			status = "disabled";                  /* in zephyr/dts/xtensa/espressif/esp32s3/esp32s3_common.dtsi:530 */
+			status = "okay";                      /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:73 */
+			pinctrl-0 = < &mcpwm0_default >;      /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:74 */
+			pinctrl-names = "default";            /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:75 */
+			prescale = < 0x7 >;                   /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:78 */
+			prescale-timer0 = < 0x13 >;           /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:81 */
+			prescale-timer1 = < 0x13 >;           /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:84 */
 		};
 
 		/* node '/soc/mcpwm@6002c000' defined in zephyr/dts/xtensa/espressif/esp32s3/esp32s3_common.dtsi:533 */
@@ -781,7 +786,7 @@
 				power-state-name = "standby";      /* in zephyr/dts/xtensa/espressif/esp32s3/esp32s3_common.dtsi:53 */
 				min-residency-us = < 0xc8 >;       /* in zephyr/dts/xtensa/espressif/esp32s3/esp32s3_common.dtsi:54 */
 				exit-latency-us = < 0x85 >;        /* in zephyr/dts/xtensa/espressif/esp32s3/esp32s3_common.dtsi:55 */
-				phandle = < 0xf >;                 /* in zephyr/dts/xtensa/espressif/esp32s3/esp32s3_common.dtsi:35 */
+				phandle = < 0x10 >;                /* in zephyr/dts/xtensa/espressif/esp32s3/esp32s3_common.dtsi:35 */
 			};
 
 			/* node '/cpus/power-states/deep_sleep' defined in zephyr/dts/xtensa/espressif/esp32s3/esp32s3_common.dtsi:58 */
@@ -790,7 +795,7 @@
 				power-state-name = "soft-off";     /* in zephyr/dts/xtensa/espressif/esp32s3/esp32s3_common.dtsi:60 */
 				min-residency-us = < 0x7d0 >;      /* in zephyr/dts/xtensa/espressif/esp32s3/esp32s3_common.dtsi:61 */
 				exit-latency-us = < 0x17e >;       /* in zephyr/dts/xtensa/espressif/esp32s3/esp32s3_common.dtsi:62 */
-				phandle = < 0x10 >;                /* in zephyr/dts/xtensa/espressif/esp32s3/esp32s3_common.dtsi:35 */
+				phandle = < 0x11 >;                /* in zephyr/dts/xtensa/espressif/esp32s3/esp32s3_common.dtsi:35 */
 			};
 		};
 	};
@@ -945,6 +950,20 @@
 			group1 {
 				pinmux = < 0x3a7fc5 >,
 				         < 0xff9d06 >; /* in zephyr/boards/espressif/esp32s3_devkitc/esp32s3_devkitc-pinctrl.dtsi:104 */
+			};
+		};
+
+		/* node '/pin-controller/mcpwm0_default' defined in ../zephyr/Drone_project/Drone_complete_code/app.overlay:56 */
+		mcpwm0_default: mcpwm0_default {
+			phandle = < 0xf >; /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:74 */
+
+			/* node '/pin-controller/mcpwm0_default/group1' defined in ../zephyr/Drone_project/Drone_complete_code/app.overlay:59 */
+			group1 {
+				pinmux = < 0x507fd2 >,
+				         < 0x50ffd1 >,
+				         < 0x517fd0 >,
+				         < 0x51ffcf >; /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:60 */
+				output-enable;         /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:64 */
 			};
 		};
 	};
