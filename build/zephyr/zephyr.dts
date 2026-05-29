@@ -959,10 +959,10 @@
 
 			/* node '/pin-controller/mcpwm0_default/group1' defined in ../zephyr/Drone_project/Drone_complete_code/app.overlay:59 */
 			group1 {
-				pinmux = < 0x507fd2 >,
-				         < 0x50ffd1 >,
-				         < 0x517fd0 >,
-				         < 0x51ffcf >; /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:60 */
+				pinmux = < 0x507fd0 >,
+				         < 0x50ffd2 >,
+				         < 0x517fcf >,
+				         < 0x51ffd1 >; /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:60 */
 				output-enable;         /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:64 */
 			};
 		};

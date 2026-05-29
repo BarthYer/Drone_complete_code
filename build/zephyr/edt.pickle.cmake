@@ -1250,7 +1250,7 @@ set_target_properties(${DEVICETREE_TARGET} PROPERTIES "DT_REG|/pin-controller/mc
 set_target_properties(${DEVICETREE_TARGET} PROPERTIES "DT_REG|/pin-controller/mcpwm0_default|ADDR" "")
 set_target_properties(${DEVICETREE_TARGET} PROPERTIES "DT_REG|/pin-controller/mcpwm0_default|SIZE" "")
 set_target_properties(${DEVICETREE_TARGET} PROPERTIES "DT_NODE|/pin-controller/mcpwm0_default/group1" TRUE)
-set_target_properties(${DEVICETREE_TARGET} PROPERTIES "DT_PROP|/pin-controller/mcpwm0_default/group1|pinmux" "5275602;5308369;5341136;5373903;")
+set_target_properties(${DEVICETREE_TARGET} PROPERTIES "DT_PROP|/pin-controller/mcpwm0_default/group1|pinmux" "5275600;5308370;5341135;5373905;")
 set_target_properties(${DEVICETREE_TARGET} PROPERTIES "DT_PROP|/pin-controller/mcpwm0_default/group1|bias-disable" "False")
 set_target_properties(${DEVICETREE_TARGET} PROPERTIES "DT_PROP|/pin-controller/mcpwm0_default/group1|bias-pull-up" "False")
 set_target_properties(${DEVICETREE_TARGET} PROPERTIES "DT_PROP|/pin-controller/mcpwm0_default/group1|bias-pull-down" "False")

@@ -1100,10 +1100,10 @@ zephyr_udc0: &usb_otg {
 
 
         group1 {
-            pinmux = <(((18 & 0x3FU) << 0U) | ((0x1FFU & 0x1FFU) << 6U) | ((160 & 0x1FFU) << 15U))>,
-                     <(((17 & 0x3FU) << 0U) | ((0x1FFU & 0x1FFU) << 6U) | ((161 & 0x1FFU) << 15U))>,
-      <(((16 & 0x3FU) << 0U) | ((0x1FFU & 0x1FFU) << 6U) | ((162 & 0x1FFU) << 15U))>,
-                     <(((15 & 0x3FU) << 0U) | ((0x1FFU & 0x1FFU) << 6U) | ((163 & 0x1FFU) << 15U))>;
+            pinmux = <(((16 & 0x3FU) << 0U) | ((0x1FFU & 0x1FFU) << 6U) | ((160 & 0x1FFU) << 15U))>,
+                     <(((18 & 0x3FU) << 0U) | ((0x1FFU & 0x1FFU) << 6U) | ((161 & 0x1FFU) << 15U))>,
+      <(((15 & 0x3FU) << 0U) | ((0x1FFU & 0x1FFU) << 6U) | ((162 & 0x1FFU) << 15U))>,
+                     <(((17 & 0x3FU) << 0U) | ((0x1FFU & 0x1FFU) << 6U) | ((163 & 0x1FFU) << 15U))>;
             output-enable;
         };
 

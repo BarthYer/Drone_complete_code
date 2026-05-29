@@ -3258,15 +3258,15 @@
 #define DT_N_S_pin_controller_S_mcpwm0_default_S_group1_PINCTRL_NUM 0
 
 /* Generic property macros: */
-#define DT_N_S_pin_controller_S_mcpwm0_default_S_group1_P_pinmux {5275602 /* 0x507fd2 */, 5308369 /* 0x50ffd1 */, 5341136 /* 0x517fd0 */, 5373903 /* 0x51ffcf */}
+#define DT_N_S_pin_controller_S_mcpwm0_default_S_group1_P_pinmux {5275600 /* 0x507fd0 */, 5308370 /* 0x50ffd2 */, 5341135 /* 0x517fcf */, 5373905 /* 0x51ffd1 */}
 #define DT_N_S_pin_controller_S_mcpwm0_default_S_group1_P_pinmux_IDX_0_EXISTS 1
-#define DT_N_S_pin_controller_S_mcpwm0_default_S_group1_P_pinmux_IDX_0 5275602
+#define DT_N_S_pin_controller_S_mcpwm0_default_S_group1_P_pinmux_IDX_0 5275600
 #define DT_N_S_pin_controller_S_mcpwm0_default_S_group1_P_pinmux_IDX_1_EXISTS 1
-#define DT_N_S_pin_controller_S_mcpwm0_default_S_group1_P_pinmux_IDX_1 5308369
+#define DT_N_S_pin_controller_S_mcpwm0_default_S_group1_P_pinmux_IDX_1 5308370
 #define DT_N_S_pin_controller_S_mcpwm0_default_S_group1_P_pinmux_IDX_2_EXISTS 1
-#define DT_N_S_pin_controller_S_mcpwm0_default_S_group1_P_pinmux_IDX_2 5341136
+#define DT_N_S_pin_controller_S_mcpwm0_default_S_group1_P_pinmux_IDX_2 5341135
 #define DT_N_S_pin_controller_S_mcpwm0_default_S_group1_P_pinmux_IDX_3_EXISTS 1
-#define DT_N_S_pin_controller_S_mcpwm0_default_S_group1_P_pinmux_IDX_3 5373903
+#define DT_N_S_pin_controller_S_mcpwm0_default_S_group1_P_pinmux_IDX_3 5373905
 #define DT_N_S_pin_controller_S_mcpwm0_default_S_group1_P_pinmux_FOREACH_PROP_ELEM(fn) fn(DT_N_S_pin_controller_S_mcpwm0_default_S_group1, pinmux, 0) \
 	fn(DT_N_S_pin_controller_S_mcpwm0_default_S_group1, pinmux, 1) \
 	fn(DT_N_S_pin_controller_S_mcpwm0_default_S_group1, pinmux, 2) \

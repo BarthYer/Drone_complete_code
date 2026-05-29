@@ -57,10 +57,10 @@
 
         /* FIX: Timer 0 outputs in their own group */
         group1 {
-            pinmux = <MCPWM0_OUT0A_GPIO18>,  /* Motor 1 — ch 0 */
-                     <MCPWM0_OUT0B_GPIO17>,  /* Motor 2 — ch 1 */
-					 <MCPWM0_OUT1A_GPIO16>,  /* Motor 3 — ch 2 */
-                     <MCPWM0_OUT1B_GPIO15>;  /* Motor 4 — ch 3 */
+            pinmux = <MCPWM0_OUT0A_GPIO16>,  /* Motor 1 — ch 0 */
+                     <MCPWM0_OUT0B_GPIO18>,  /* Motor 2 — ch 1 */
+					 <MCPWM0_OUT1A_GPIO15>,  /* Motor 3 — ch 2 */
+                     <MCPWM0_OUT1B_GPIO17>;  /* Motor 4 — ch 3 */
             output-enable;
         };
 
