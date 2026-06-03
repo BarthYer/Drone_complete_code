@@ -196,7 +196,7 @@ int main(void)
     /* ---- Init NRF24L01 receiver ---- */
     nrf_driver_init();
 
-
+/*
     esc_pwm = DEVICE_DT_GET(ESC_PWM_NODE);
     if (!device_is_ready(esc_pwm)) {
         LOG_ERR("PWM device not ready!");
@@ -210,7 +210,7 @@ int main(void)
 #else
     esc_arm_all();
 #endif
-
+*/
 
     /* ---- Init MPU9250 IMU (board must be still during calibration) ---- */
     /*if (mpu9250_driver_init() < 0) {
@@ -240,14 +240,14 @@ int main(void)
         }*/
         
         /* ---- Read latest RC packet ---- */
-        //struct DataPackage rc = read_data();
-        for (int i = 5; i < 45; i += 5) {
+        struct DataPackage rc = read_data();
+       /* for (int i = 5; i < 45; i += 5) {
             motor_set_pulse_us(MOTOR_1_CH, 1000U + i * 10U); //motor 2
             motor_set_pulse_us(MOTOR_2_CH, 1000U + i * 10U); //motor 4
             motor_set_pulse_us(MOTOR_3_CH, 1000U + i * 10U);  //motor 1
             motor_set_pulse_us(MOTOR_4_CH, 1000U + i * 10U); //mootor 3
             k_sleep(K_SECONDS(1));
-        }
+        }*/
 
         /*for (int i = 95; i >= 0; i -= 5) {
             motor_set_pulse_us(MOTOR_1_CH, 1000U + i * 10U);
@@ -256,16 +256,16 @@ int main(void)
             motor_set_pulse_us(MOTOR_4_CH, 1000U + i * 10U);
             k_sleep(K_SECONDS(1));
         }*/
-        /*printf("RC  x_right:%5d  y_right:%5d  x_left:%5d  y_left:%5d  active:%d\n",
+        printf("RC  x_right:%5d  y_right:%5d  x_left:%5d  y_left:%5d  active:%d\n",
                    rc.x_right, rc.y_right, rc.x_left, rc.y_left,
-                   (int)rc.drone_active);*/
+                   (int)rc.drone_active);
         /* ---- Drive all 4 motors from RC commands ---- */
         //motors_set_from_rc(&rc);
 
         /* ---- Print telemetry at 10 Hz ---- */
         /*if (++print_cnt >= MPU9250_LOOP_HZ / 10) {
             print_cnt = 0;
-
+            struct DataPackage rc = read_data();
             printf("RC  x_right:%5d  y_right:%5d  x_left:%5d  y_left:%5d  active:%d\n",
                    rc.x_right, rc.y_right, rc.x_left, rc.y_left,
                    (int)rc.drone_active);
@@ -278,12 +278,12 @@ int main(void)
 
         /* ---- Deadline sleep: keep loop at exactly MPU9250_LOOP_HZ ---- */
         /*int64_t elapsed_ms = k_uptime_get() - t_start;
-        int32_t sleep_ms   = MPU9250_LOOP_MS - (int32_t)elapsed_ms;*/
-       /* if (sleep_ms > 0) {
+        int32_t sleep_ms   = MPU9250_LOOP_MS - (int32_t)elapsed_ms;
+       if (sleep_ms > 0) {
             k_sleep(K_MSEC(sleep_ms));
         }*/
-        //k_sleep(K_MSEC(1));
-        k_sleep(K_SECONDS(1));
+        k_sleep(K_MSEC(1));
+        //k_sleep(K_SECONDS(1));
     }
 
     return 0;

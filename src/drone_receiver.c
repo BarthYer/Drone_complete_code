@@ -159,7 +159,6 @@ void nrf_driver_init(void)
 
 struct DataPackage read_data()
 {
-    struct DataPackage data = {0};  /* initialise so we return zeros when no packet */
     uint8_t status = nrf_read_reg(REG_STATUS);
 
     if (status & 0x40) /* RX_DR bit set: data is ready */
@@ -182,13 +181,17 @@ struct DataPackage read_data()
         csn_high();
 
         /* rx[0] = status byte, rx[1..N] = payload */
-        memcpy(&data, &rx[1], sizeof(struct DataPackage));
+        memcpy(&data, &rx[1], sizeof(data));
 
         /* Clear RX_DR interrupt flag */
         nrf_write_reg(REG_STATUS, 0x40);
 
         /* Flush RX FIFO */
         spi_transfer(NRF_CMD_FLUSH_RX);
+
+       /*printf("RC  x_right:%5d  y_right:%5d  x_left:%5d  y_left:%5d  active:%d\n",
+                   data.x_right, data.y_right, data.x_left, data.y_left,
+                   (int)data.drone_active);*/
         
     }
     return data;
