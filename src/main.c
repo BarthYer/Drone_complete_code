@@ -196,7 +196,7 @@ int main(void)
     /* ---- Init NRF24L01 receiver ---- */
     nrf_driver_init();
 
-/*
+
     esc_pwm = DEVICE_DT_GET(ESC_PWM_NODE);
     if (!device_is_ready(esc_pwm)) {
         LOG_ERR("PWM device not ready!");
@@ -210,7 +210,7 @@ int main(void)
 #else
     esc_arm_all();
 #endif
-*/
+
 
     /* ---- Init MPU9250 IMU (board must be still during calibration) ---- */
     /*if (mpu9250_driver_init() < 0) {
@@ -224,38 +224,43 @@ int main(void)
         return -1;
     }*/
 
-    uint32_t print_cnt = 0;
+    /* Throttle courant appliqué aux ESC (0–100 %) */
+    int32_t throttle_current = 0;
 
-    //motors_set_all(0);
-    
-   
+#define THROTTLE_STEP_UP    2   /* %/iter montée  — 50 iter × 2 = 100 % en 1 s  */
+#define THROTTLE_STEP_DOWN  4   /* %/iter descente — plus rapide pour la sécurité */
+#define THROTTLE_MAX       50   /* limite haute pour les tests (passer à 100 en vol) */
 
     while (1) {
-        int64_t t_start = k_uptime_get();
-        //motors_set_all(25);
-        //motor_set_throttle(3, 1200);
         /* ---- Update IMU (250 Hz complementary filter) ---- */
         /*if (mpu9250_update() < 0) {
             printf("ERROR: IMU read failed\n");
         }*/
-        
+
         /* ---- Read latest RC packet ---- */
         struct DataPackage rc = read_data();
-       /* for (int i = 5; i < 45; i += 5) {
-            motor_set_pulse_us(MOTOR_1_CH, 1000U + i * 10U); //motor 2
-            motor_set_pulse_us(MOTOR_2_CH, 1000U + i * 10U); //motor 4
-            motor_set_pulse_us(MOTOR_3_CH, 1000U + i * 10U);  //motor 1
-            motor_set_pulse_us(MOTOR_4_CH, 1000U + i * 10U); //mootor 3
-            k_sleep(K_SECONDS(1));
-        }*/
 
-        /*for (int i = 95; i >= 0; i -= 5) {
-            motor_set_pulse_us(MOTOR_1_CH, 1000U + i * 10U);
-            motor_set_pulse_us(MOTOR_2_CH, 1000U + i * 10U);
-            motor_set_pulse_us(MOTOR_3_CH, 1000U + i * 10U);
-            motor_set_pulse_us(MOTOR_4_CH, 1000U + i * 10U);
-            k_sleep(K_SECONDS(1));
-        }*/
+        /* Throttle cible : 0 si drone inactif, sinon y_left clampé 0–THROTTLE_MAX */
+        int32_t throttle_target = 0;
+        if (rc.drone_active ==false) {
+            throttle_target = rc.y_left;
+            if (throttle_target < 0)            { throttle_target = 0; }
+            if (throttle_target > THROTTLE_MAX) { throttle_target = THROTTLE_MAX; }
+        }
+
+        /* Rampe avec pas différents montée / descente */
+        int32_t diff = throttle_target - throttle_current;
+        if (diff > 0) {
+            if (diff >  THROTTLE_STEP_UP)   { diff =  THROTTLE_STEP_UP; }
+        } else {
+            if (diff < -THROTTLE_STEP_DOWN) { diff = -THROTTLE_STEP_DOWN; }
+        }
+        throttle_current += diff;
+
+        motors_set_all((uint8_t)throttle_current);
+
+
+
         printf("RC  x_right:%5d  y_right:%5d  x_left:%5d  y_left:%5d  active:%d\n",
                    rc.x_right, rc.y_right, rc.x_left, rc.y_left,
                    (int)rc.drone_active);
@@ -282,7 +287,7 @@ int main(void)
        if (sleep_ms > 0) {
             k_sleep(K_MSEC(sleep_ms));
         }*/
-        k_sleep(K_MSEC(1));
+        k_sleep(K_MSEC(20));
         //k_sleep(K_SECONDS(1));
     }
 
