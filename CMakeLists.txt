@@ -8,6 +8,8 @@ target_sources(app PRIVATE
     src/main.c
     src/drone_receiver.c
     src/drone_mp9250.c
+    src/drone_mc_controller.c
+    src/drone_fsm.c
 )
 
 
