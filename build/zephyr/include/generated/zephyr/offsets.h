@@ -18,9 +18,9 @@
 #define ___thread_base_t_user_options_OFFSET 0xc
 #define ___thread_t_base_OFFSET 0x0
 #define ___thread_t_callee_saved_OFFSET 0x30
-#define ___thread_t_arch_OFFSET 0x5c
-#define ___thread_t_switch_handle_OFFSET 0x54
-#define ___thread_t_stack_info_OFFSET 0x44
+#define ___thread_t_arch_OFFSET 0x98
+#define ___thread_t_switch_handle_OFFSET 0x90
+#define ___thread_t_stack_info_OFFSET 0x80
 #define __z_interrupt_stack_SIZEOF 0x800
 #define __z_interrupt_all_stacks_SIZEOF 0x800
 #define _PM_DEVICE_STRUCT_FLAGS_OFFSET 0x0

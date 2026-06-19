@@ -356,18 +356,18 @@
 			clock-frequency = < 0x186a0 >;      /* in zephyr/boards/espressif/esp32s3_devkitc/esp32s3_devkitc_procpu.dts:80 */
 			pinctrl-0 = < &i2c0_default >;      /* in zephyr/boards/espressif/esp32s3_devkitc/esp32s3_devkitc_procpu.dts:81 */
 			pinctrl-names = "default";          /* in zephyr/boards/espressif/esp32s3_devkitc/esp32s3_devkitc_procpu.dts:82 */
-			status = "okay";                    /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:35 */
+			status = "okay";                    /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:40 */
 
-			/* node '/soc/i2c@60013000/mpu9250@68' defined in ../zephyr/Drone_project/Drone_complete_code/app.overlay:36 */
+			/* node '/soc/i2c@60013000/mpu9250@68' defined in ../zephyr/Drone_project/Drone_complete_code/app.overlay:41 */
 			mpu9250@68 {
-				compatible = "invensense,mpu9250"; /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:37 */
-				reg = < 0x68 >;                    /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:38 */
-				label = "MPU9250";                 /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:39 */
-				gyro-sr-div = < 0x0 >;             /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:42 */
-				gyro-dlpf = < 0xfa >;              /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:43 */
-				gyro-fs = < 0xfa >;                /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:44 */
-				accel-dlpf = "218.1";              /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:46 */
-				accel-fs = < 0x8 >;                /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:47 */
+				compatible = "invensense,mpu9250"; /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:42 */
+				reg = < 0x68 >;                    /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:43 */
+				label = "MPU9250";                 /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:44 */
+				gyro-sr-div = < 0x0 >;             /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:47 */
+				gyro-dlpf = < 0xfa >;              /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:48 */
+				gyro-fs = < 0xfa >;                /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:49 */
+				accel-dlpf = "218.1";              /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:51 */
+				accel-fs = < 0x8 >;                /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:52 */
 			};
 		};
 
@@ -436,14 +436,14 @@
 			#size-cells = < 0x0 >;              /* in zephyr/boards/espressif/esp32s3_devkitc/esp32s3_devkitc_procpu.dts:103 */
 			pinctrl-0 = < &spim2_default >;     /* in zephyr/boards/espressif/esp32s3_devkitc/esp32s3_devkitc_procpu.dts:105 */
 			pinctrl-names = "default";          /* in zephyr/boards/espressif/esp32s3_devkitc/esp32s3_devkitc_procpu.dts:106 */
-			status = "okay";                    /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:25 */
-			cs-gpios = < &gpio0 0xa 0x1 >;      /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:26 */
+			status = "okay";                    /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:30 */
+			cs-gpios = < &gpio0 0xa 0x1 >;      /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:31 */
 
-			/* node '/soc/spi@60024000/nrf24l01@0' defined in ../zephyr/Drone_project/Drone_complete_code/app.overlay:27 */
+			/* node '/soc/spi@60024000/nrf24l01@0' defined in ../zephyr/Drone_project/Drone_complete_code/app.overlay:32 */
 			nrf24l01: nrf24l01@0 {
-				compatible = "nordic,nrf24l01";   /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:28 */
-				reg = < 0x0 >;                    /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:29 */
-				spi-max-frequency = < 0x989680 >; /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:30 */
+				compatible = "nordic,nrf24l01";   /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:33 */
+				reg = < 0x0 >;                    /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:34 */
+				spi-max-frequency = < 0x989680 >; /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:35 */
 			};
 		};
 
@@ -657,12 +657,12 @@
 			interrupt-parent = < &intc >;         /* in zephyr/dts/xtensa/espressif/esp32s3/esp32s3_common.dtsi:527 */
 			clocks = < &clock 0xc >;              /* in zephyr/dts/xtensa/espressif/esp32s3/esp32s3_common.dtsi:528 */
 			#pwm-cells = < 0x3 >;                 /* in zephyr/dts/xtensa/espressif/esp32s3/esp32s3_common.dtsi:529 */
-			status = "okay";                      /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:73 */
-			pinctrl-0 = < &mcpwm0_default >;      /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:74 */
-			pinctrl-names = "default";            /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:75 */
-			prescale = < 0x7 >;                   /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:78 */
-			prescale-timer0 = < 0x13 >;           /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:81 */
-			prescale-timer1 = < 0x13 >;           /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:84 */
+			status = "okay";                      /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:78 */
+			pinctrl-0 = < &mcpwm0_default >;      /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:79 */
+			pinctrl-names = "default";            /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:80 */
+			prescale = < 0x7 >;                   /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:83 */
+			prescale-timer0 = < 0x13 >;           /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:86 */
+			prescale-timer1 = < 0x13 >;           /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:89 */
 		};
 
 		/* node '/soc/mcpwm@6002c000' defined in zephyr/dts/xtensa/espressif/esp32s3/esp32s3_common.dtsi:533 */
@@ -953,17 +953,17 @@
 			};
 		};
 
-		/* node '/pin-controller/mcpwm0_default' defined in ../zephyr/Drone_project/Drone_complete_code/app.overlay:56 */
+		/* node '/pin-controller/mcpwm0_default' defined in ../zephyr/Drone_project/Drone_complete_code/app.overlay:61 */
 		mcpwm0_default: mcpwm0_default {
-			phandle = < 0xf >; /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:74 */
+			phandle = < 0xf >; /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:79 */
 
-			/* node '/pin-controller/mcpwm0_default/group1' defined in ../zephyr/Drone_project/Drone_complete_code/app.overlay:59 */
+			/* node '/pin-controller/mcpwm0_default/group1' defined in ../zephyr/Drone_project/Drone_complete_code/app.overlay:64 */
 			group1 {
 				pinmux = < 0x507fd0 >,
 				         < 0x50ffd2 >,
 				         < 0x517fcf >,
-				         < 0x51ffd1 >; /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:60 */
-				output-enable;         /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:64 */
+				         < 0x51ffd1 >; /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:65 */
+				output-enable;         /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:69 */
 			};
 		};
 	};
@@ -990,14 +990,20 @@
 		};
 	};
 
-	/* node '/leds' defined in ../zephyr/Drone_project/Drone_complete_code/app.overlay:7 */
-	leds {
-		compatible = "gpio-leds"; /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:8 */
+	/* node '/wifi_ap' defined in ../zephyr/Drone_project/Drone_complete_code/app.overlay:7 */
+	wifi_ap: wifi_ap {
+		compatible = "espressif,esp32-wifi"; /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:8 */
+		status = "okay";                     /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:9 */
+	};
 
-		/* node '/leds/led_1' defined in ../zephyr/Drone_project/Drone_complete_code/app.overlay:9 */
+	/* node '/leds' defined in ../zephyr/Drone_project/Drone_complete_code/app.overlay:12 */
+	leds {
+		compatible = "gpio-leds"; /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:13 */
+
+		/* node '/leds/led_1' defined in ../zephyr/Drone_project/Drone_complete_code/app.overlay:14 */
 		led_1: led_1 {
-			gpios = < &gpio0 0x2 0x0 >; /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:10 */
-			label = "LED 1";            /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:11 */
+			gpios = < &gpio0 0x2 0x0 >; /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:15 */
+			label = "LED 1";            /* in ../zephyr/Drone_project/Drone_complete_code/app.overlay:16 */
 		};
 	};
 };

@@ -5,6 +5,7 @@
 #include "drone_receiver.h"
 #include "drone_mpu9250.h"
 #include "drone_mc_controller.h"
+#include "drone_webserver.h"
 
 LOG_MODULE_REGISTER(drone_fsm, LOG_LEVEL_INF);
 
@@ -211,6 +212,9 @@ void drone_fsm_run(void)
         goto loop;
     }
 
+    /* Start WiFi AP + HTTP control server in background */
+    drone_webserver_start();
+
     enter_state(DRONE_STATE_IDLE);
 
 loop:
@@ -224,7 +228,16 @@ loop:
             enter_state(DRONE_STATE_ERROR);
         }
 
+        /* NRF24 RC packet (last received, never cleared on signal loss) */
         struct DataPackage rc = read_data();
+
+        /* WiFi RC overrides NRF24 when the web interface is active.
+         * drone_webserver_get_rc() returns active=false if no POST
+         * was received in the last 500 ms (stale guard).            */
+        struct DataPackage wifi_rc = drone_webserver_get_rc();
+        if (wifi_rc.drone_active) {
+            rc = wifi_rc;
+        }
 
         switch (current_state) {
         case DRONE_STATE_INIT:

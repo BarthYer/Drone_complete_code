@@ -434,6 +434,7 @@ SECTIONS
     . = ALIGN(4);
     _loader_data_end = ABSOLUTE(.);
   } > dram0_0_seg AT > FLASH
+wifi_nm_instance_area : ALIGN_WITH_INPUT { _wifi_nm_instance_list_start = .; KEEP(*(SORT_BY_NAME(._wifi_nm_instance.static.*))); _wifi_nm_instance_list_end = .;; } > dram0_0_seg AT > FLASH
  sw_isr_table : ALIGN_WITH_INPUT
  {
   . = ALIGN(4);
@@ -467,6 +468,7 @@ SECTIONS
  k_condvar_area : ALIGN_WITH_INPUT { _k_condvar_list_start = .; *(SORT_BY_NAME(._k_condvar.static.*)); _k_condvar_list_end = .;; } > dram0_0_seg AT > FLASH
  sys_mem_blocks_ptr_area : ALIGN_WITH_INPUT { _sys_mem_blocks_ptr_list_start = .; *(SORT_BY_NAME(._sys_mem_blocks_ptr.static.*)); _sys_mem_blocks_ptr_list_end = .;; } > dram0_0_seg AT > FLASH
  net_buf_pool_area : ALIGN_WITH_INPUT { _net_buf_pool_list_start = .; KEEP(*(SORT_BY_NAME(._net_buf_pool.static.*))); _net_buf_pool_list_end = .;; } > dram0_0_seg AT > FLASH
+ net_if_area : ALIGN_WITH_INPUT { _net_if_list_start = .; KEEP(*(SORT_BY_NAME(._net_if.static.*))); _net_if_list_end = .;; } > dram0_0_seg AT > FLASH net_if_dev_area : ALIGN_WITH_INPUT { _net_if_dev_list_start = .; KEEP(*(SORT_BY_NAME(._net_if_dev.static.*))); _net_if_dev_list_end = .;; } > dram0_0_seg AT > FLASH net_l2_area : ALIGN_WITH_INPUT { _net_l2_list_start = .; KEEP(*(SORT_BY_NAME(._net_l2.static.*))); _net_l2_list_end = .;; } > dram0_0_seg AT > FLASH eth_bridge_area : ALIGN_WITH_INPUT { _eth_bridge_list_start = .; KEEP(*(SORT_BY_NAME(._eth_bridge.static.*))); _eth_bridge_list_end = .;; } > dram0_0_seg AT > FLASH
          
  log_strings_area : ALIGN_WITH_INPUT { _log_strings_list_start = .; KEEP(*(SORT_BY_NAME(._log_strings.static.*))); _log_strings_list_end = .;; } > dram0_0_seg AT > FLASH
  log_stmesp_ptr_area : ALIGN_WITH_INPUT { _log_stmesp_ptr_list_start = .; KEEP(*(SORT_BY_NAME(._log_stmesp_ptr.static.*))); _log_stmesp_ptr_list_end = .;; } > dram0_0_seg AT > FLASH
@@ -652,6 +654,7 @@ __device_deps_start = .;
 KEEP(*(SORT(.__device_deps_pass2*)));
 __device_deps_end = .;
  } > drom0_0_seg AT > FLASH
+entropy_driver_api_area : ALIGN_WITH_INPUT { _entropy_driver_api_list_start = .; KEEP(*(SORT_BY_NAME(._entropy_driver_api.static.*))); _entropy_driver_api_list_end = .;; } > drom0_0_seg AT > FLASH
 gpio_driver_api_area : ALIGN_WITH_INPUT { _gpio_driver_api_list_start = .; KEEP(*(SORT_BY_NAME(._gpio_driver_api.static.*))); _gpio_driver_api_list_end = .;; } > drom0_0_seg AT > FLASH
 i2c_driver_api_area : ALIGN_WITH_INPUT { _i2c_driver_api_list_start = .; KEEP(*(SORT_BY_NAME(._i2c_driver_api.static.*))); _i2c_driver_api_list_end = .;; } > drom0_0_seg AT > FLASH
 i2c_target_driver_api_area : ALIGN_WITH_INPUT { _i2c_target_driver_api_list_start = .; KEEP(*(SORT_BY_NAME(._i2c_target_driver_api.static.*))); _i2c_target_driver_api_list_end = .;; } > drom0_0_seg AT > FLASH
@@ -680,7 +683,6 @@ eeprom_driver_api_area : ALIGN_WITH_INPUT { _eeprom_driver_api_list_start = .; K
 emul_bbram_driver_api_area : ALIGN_WITH_INPUT { _emul_bbram_driver_api_list_start = .; KEEP(*(SORT_BY_NAME(._emul_bbram_driver_api.static.*))); _emul_bbram_driver_api_list_end = .;; } > drom0_0_seg AT > FLASH
 fuel_gauge_emul_driver_api_area : ALIGN_WITH_INPUT { _fuel_gauge_emul_driver_api_list_start = .; KEEP(*(SORT_BY_NAME(._fuel_gauge_emul_driver_api.static.*))); _fuel_gauge_emul_driver_api_list_end = .;; } > drom0_0_seg AT > FLASH
 emul_sensor_driver_api_area : ALIGN_WITH_INPUT { _emul_sensor_driver_api_list_start = .; KEEP(*(SORT_BY_NAME(._emul_sensor_driver_api.static.*))); _emul_sensor_driver_api_list_end = .;; } > drom0_0_seg AT > FLASH
-entropy_driver_api_area : ALIGN_WITH_INPUT { _entropy_driver_api_list_start = .; KEEP(*(SORT_BY_NAME(._entropy_driver_api.static.*))); _entropy_driver_api_list_end = .;; } > drom0_0_seg AT > FLASH
 espi_driver_api_area : ALIGN_WITH_INPUT { _espi_driver_api_list_start = .; KEEP(*(SORT_BY_NAME(._espi_driver_api.static.*))); _espi_driver_api_list_end = .;; } > drom0_0_seg AT > FLASH
 espi_saf_driver_api_area : ALIGN_WITH_INPUT { _espi_saf_driver_api_list_start = .; KEEP(*(SORT_BY_NAME(._espi_saf_driver_api.static.*))); _espi_saf_driver_api_list_end = .;; } > drom0_0_seg AT > FLASH
 flash_driver_api_area : ALIGN_WITH_INPUT { _flash_driver_api_list_start = .; KEEP(*(SORT_BY_NAME(._flash_driver_api.static.*))); _flash_driver_api_list_end = .;; } > drom0_0_seg AT > FLASH
@@ -746,6 +748,10 @@ ztest : ALIGN_WITH_INPUT
  _ztest_unit_test_list_start = .; KEEP(*(SORT_BY_NAME(._ztest_unit_test.static.*))); _ztest_unit_test_list_end = .;;
  _ztest_test_rule_list_start = .; KEEP(*(SORT_BY_NAME(._ztest_test_rule.static.*))); _ztest_test_rule_list_end = .;;
 } > drom0_0_seg AT > FLASH
+ net_l3_register_area : ALIGN_WITH_INPUT { _net_l3_register_list_start = .; KEEP(*(SORT_BY_NAME(._net_l3_register.static.*))); _net_l3_register_list_end = .;; } > drom0_0_seg AT > FLASH
+ net_socket_register_area : ALIGN_WITH_INPUT { _net_socket_register_list_start = .; KEEP(*(SORT_BY_NAME(._net_socket_register.static.*))); _net_socket_register_list_end = .;; } > drom0_0_seg AT > FLASH
+ net_mgmt_event_static_handler_area : ALIGN_WITH_INPUT { _net_mgmt_event_static_handler_list_start = .; KEEP(*(SORT_BY_NAME(._net_mgmt_event_static_handler.static.*))); _net_mgmt_event_static_handler_list_end = .;; } > drom0_0_seg AT > FLASH
+ net_socket_service_desc_area : ALIGN_WITH_INPUT { _net_socket_service_desc_list_start = .; KEEP(*(SORT_BY_NAME(._net_socket_service_desc.static.*))); _net_socket_service_desc_list_end = .;; } > drom0_0_seg AT > FLASH
  bt_l2cap_fixed_chan_area : ALIGN_WITH_INPUT { _bt_l2cap_fixed_chan_list_start = .; KEEP(*(SORT_BY_NAME(._bt_l2cap_fixed_chan.static.*))); _bt_l2cap_fixed_chan_list_end = .;; } > drom0_0_seg AT > FLASH
  bt_gatt_service_static_area : ALIGN_WITH_INPUT { _bt_gatt_service_static_list_start = .; KEEP(*(SORT_BY_NAME(._bt_gatt_service_static.static.*))); _bt_gatt_service_static_list_end = .;; } > drom0_0_seg AT > FLASH
  tracing_backend_area : ALIGN_WITH_INPUT { _tracing_backend_list_start = .; KEEP(*(SORT_BY_NAME(._tracing_backend.static.*))); _tracing_backend_list_end = .;; } > drom0_0_seg AT > FLASH

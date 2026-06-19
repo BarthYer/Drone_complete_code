@@ -1,5 +1,5 @@
 The target system is: Generic - 4.3.99 - xtensa
-The host system is: Linux - 6.17.0-29-generic - x86_64
+The host system is: Linux - 6.17.0-35-generic - x86_64
 Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
 Compiler: /home/barth/zephyr-sdk-0.17.4/xtensa-espressif_esp32s3_zephyr-elf/bin/xtensa-espressif_esp32s3_zephyr-elf-gcc 
 Build flags: 

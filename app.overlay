@@ -1,7 +1,12 @@
 / {
     aliases {
         led1 = &led_1;
+    };
 
+    /* Soft-AP network interface — net_if_get_wifi_sap() returns this */
+    wifi_ap: wifi_ap {
+        compatible = "espressif,esp32-wifi";
+        status = "okay";
     };
 
     leds {
@@ -11,8 +16,8 @@
             label = "LED 1";
         };
     };
-       
 };
+
 
 
 /*

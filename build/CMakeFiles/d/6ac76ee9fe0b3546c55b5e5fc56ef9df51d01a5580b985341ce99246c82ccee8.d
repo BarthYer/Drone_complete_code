@@ -45,8 +45,9 @@ zephyr/linker.cmd: \
   /home/barth/zephyrproject/zephyr/include/zephyr/linker/llext-sections.ld \
   zephyr/include/generated/snippets-rwdata.ld \
   zephyr/include/generated/snippets-data-sections.ld \
-  /home/barth/zephyrproject/zephyr/include/zephyr/linker/common-ram.ld \
+  /home/barth/zephyrproject/zephyr/subsys/net/l2/wifi/wifi_nm.ld \
   /home/barth/zephyrproject/zephyr/include/zephyr/linker/iterable_sections.h \
+  /home/barth/zephyrproject/zephyr/include/zephyr/linker/common-ram.ld \
   zephyr/include/generated/snippets-ram-sections.ld \
   /home/barth/zephyrproject/zephyr/include/zephyr/linker/cplusplus-ram.ld \
   /home/barth/zephyrproject/zephyr/include/zephyr/linker/kobject-data.ld \
